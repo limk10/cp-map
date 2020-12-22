@@ -1,19 +1,26 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import PropTypes from "prop-types";
+import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import {
   useFonts,
   Montserrat_600SemiBold,
-  Montserrat_700Bold
+  Montserrat_800ExtraBold,
+  Montserrat_500Medium
 } from "@expo-google-fonts/montserrat";
+
 import AppLoading from "expo-app-loading";
+
 import styles from "./styles";
 
-import homeIllustration from "~/assets/img/illustration-home.png";
+import _homeIllustration from "~/assets/img/g10.png";
 
-const Home = () => {
+const windowHeight = Dimensions.get("window").height;
+
+const Home = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
-    Montserrat_700Bold,
-    Montserrat_600SemiBold
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_800ExtraBold
   });
 
   if (!fontsLoaded) {
@@ -24,18 +31,27 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.containerImage}>
         <Image
-          source={homeIllustration}
-          resizeMode="contain"
-          style={{ width: "100%", height: 300 }}
+          source={_homeIllustration}
+          resizeMode="cover"
+          style={{
+            width: "100%",
+            height: windowHeight / 2.5
+          }}
         />
       </View>
-      <Text
-        style={[styles.apresentationText, { fontFamily: "Montserrat_700Bold" }]}
-      >
+      <Text style={[styles.title, { fontFamily: "Montserrat_800ExtraBold" }]}>
         {`Olá~\nPesquise\nDescubra\nAprecie ;)`}
       </Text>
+      <Text
+        style={[styles.description, { fontFamily: "Montserrat_500Medium" }]}
+      >
+        {`Encontre locais desejados. Encontre as melhores lugares para ir com o nosso App.`}
+      </Text>
       <View style={styles.containerButton}>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Map")}
+        >
           <Text
             style={[
               styles.textButton,
@@ -48,6 +64,10 @@ const Home = () => {
       </View>
     </View>
   );
+};
+
+Home.propTypes = {
+  navigation: PropTypes.object.isRequired
 };
 
 export default Home;
