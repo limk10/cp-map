@@ -1,0 +1,12 @@
+{
+  "name": "cp-map",
+  "displayName": "cp-map",
+  "expo": {
+    "name": "cp-map",
+    "slug": "cp-map",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
