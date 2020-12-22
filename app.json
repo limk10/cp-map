@@ -5,8 +5,23 @@
     "name": "cp-map",
     "slug": "cp-map",
     "version": "1.0.0",
+    "icon": "./assets/images/icon.png",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f0f0f0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#fff"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "cp-map"
+    }
   }
 }
