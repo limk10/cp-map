@@ -9,9 +9,8 @@ import Map from "~/screens/Map";
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <StatusBar backgroundColor="#000" translucent={false} /> */}
+      <StatusBar />
       <Routes />
-      {/* <Home /> */}
     </SafeAreaView>
   );
 };
