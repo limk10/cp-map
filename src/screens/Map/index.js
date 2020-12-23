@@ -4,6 +4,8 @@ import { View, Dimensions, ScrollView } from "react-native";
 
 import styles from "./styles";
 
+import GenericButton from "~/components/GenericButton";
+
 const Map = () => {
   const [initialRegion, setInitialRegion] = useState({
     latitude: 37.78825,
@@ -15,7 +17,23 @@ const Map = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <MapView initialRegion={initialRegion} style={styles.map} />
+        <View style={styles.containerMap}>
+          <MapView initialRegion={initialRegion} style={styles.map} />
+        </View>
+        <View style={styles.containerButtons}>
+          <GenericButton
+            style={styles.button}
+            width="100%"
+            title="Novo Marcador"
+            action={() => {}}
+          />
+          <GenericButton
+            style={styles.button}
+            width="100%"
+            title="Sincronizar"
+            action={() => {}}
+          />
+        </View>
       </ScrollView>
     </View>
   );

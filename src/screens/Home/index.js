@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
+import { View, Text, Image } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from "react-native-responsive-screen";
 import {
   useFonts,
   Montserrat_600SemiBold,
@@ -14,7 +18,7 @@ import styles from "./styles";
 
 import _homeIllustration from "~/assets/img/g10.png";
 
-const windowHeight = Dimensions.get("window").height;
+import GenericButton from "~/components/GenericButton";
 
 const Home = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
@@ -32,10 +36,10 @@ const Home = ({ navigation }) => {
       <View style={styles.containerImage}>
         <Image
           source={_homeIllustration}
-          resizeMode="cover"
+          resizeMode="contain"
           style={{
             width: "100%",
-            height: windowHeight / 2.5
+            height: hp("38%")
           }}
         />
       </View>
@@ -48,19 +52,11 @@ const Home = ({ navigation }) => {
         {`Encontre locais desejados. Encontre as melhores lugares para ir com o nosso App.`}
       </Text>
       <View style={styles.containerButton}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Map")}
-        >
-          <Text
-            style={[
-              styles.textButton,
-              { fontFamily: "Montserrat_600SemiBold" }
-            ]}
-          >
-            Explore...
-          </Text>
-        </TouchableOpacity>
+        <GenericButton
+          action={() => navigation.navigate("Map")}
+          width="40%"
+          title="Explorar..."
+        />
       </View>
     </View>
   );

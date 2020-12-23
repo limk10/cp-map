@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 import { colors } from "~/styles";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from "react-native-responsive-screen";
 
 const useStyles = StyleSheet.create({
   container: {
@@ -15,33 +19,19 @@ const useStyles = StyleSheet.create({
   },
   title: {
     marginTop: 20,
-    fontSize: 30,
+    fontSize: hp("3.5%"),
     color: colors.text
   },
   description: {
     maxWidth: "75%",
     marginTop: 20,
-    fontSize: 18,
+    fontSize: hp("2.5%"),
     color: colors.text
   },
   containerButton: {
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "flex-end"
-  },
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.primary,
-    borderBottomWidth: 4,
-    borderBottomColor: colors.secondary,
-    borderRadius: 10,
-    width: "40%",
-    height: 45
-  },
-  textButton: {
-    fontSize: 17,
-    color: "#f0f0f0"
   }
 });
 

@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView } from "react-native";
 import "react-native-gesture-handler";
 
 import Routes from "~/routes";
-import Home from "~/screens/Home";
+import Map from "~/screens/Map";
 
 const App = () => {
   return (
