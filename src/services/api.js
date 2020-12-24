@@ -1,8 +1,4 @@
 import axios from "axios";
-import { getToken } from "~/services/auth";
-import { toast } from "react-toastify";
-
-toast.configure();
 
 const api = axios.create({
   baseURL: "https://hooks.zapier.com/hooks/catch/472009/09rj5z/?"
@@ -15,10 +11,18 @@ api.interceptors.request.use(async config => {
 });
 
 api.interceptors.response.use(
-  response => response,
+  response => {
+    console.log("------------------------------------");
+    console.log("response", response);
+    console.log("------------------------------------");
+    const { data } = response;
+    return data;
+  },
   error => {
     const { response = {} } = error;
     const { data } = response;
+
+    console.log("->", JSON.stringify(data));
 
     return Promise.reject(error);
   }
