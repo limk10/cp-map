@@ -16,9 +16,9 @@ const GenericButton = props => {
     Montserrat_600SemiBold
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  // if (!fontsLoaded) {
+  //   return <AppLoading />;
+  // }
 
   return (
     <TouchableOpacity
