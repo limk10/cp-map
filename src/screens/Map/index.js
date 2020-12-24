@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MapView from "react-native-maps";
-import { View, Dimensions, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 
-import styles from "./styles";
+import { getCurrentPosition } from "~/helper/map";
 
 import GenericButton from "~/components/GenericButton";
+import api from "~/services/api";
+
+import styles from "./styles";
 
 const Map = () => {
   const [initialRegion, setInitialRegion] = useState({
@@ -13,6 +16,19 @@ const Map = () => {
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421
   });
+
+  useEffect(() => {
+    init();
+  }, []);
+
+  const init = async () => {
+    const location = await getCurrentPosition();
+    console.log(location);
+    // const result = await api.get(
+    //   "https://hooks.zapier.com/hooks/catch/472009/09rj5z/?"
+    // );
+    // console.log(result);
+  };
 
   return (
     <View style={styles.container}>
